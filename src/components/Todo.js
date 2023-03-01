@@ -1,15 +1,20 @@
-import {useEffect, useState} from "react";
+
 import React, { Component } from "react";
 
 export default class ProjectsPage extends Component {
     state = {
-        Id: "",
+        Id: 1,
         Title: "",
-        Description: "Description"
+        Description: ""
     };
     handleTitleChange = (event) => {
         this.setState({
             Title: event.target.value
+        });
+    };
+    handleDescriptionChange = (event) => {
+        this.setState({
+            Description: event.target.value
         });
     };
     handleToDoSubmit = (event) => {
@@ -20,9 +25,9 @@ export default class ProjectsPage extends Component {
             Description: this.state.Description
         });
         this.setState({
-            Id: "",
+            Id: this.state.Id+1,
             Title: "",
-            Description: "Description"
+            Description: ""
         });
     }
     render() {
@@ -38,7 +43,7 @@ export default class ProjectsPage extends Component {
 
                     <div className="description">
                         <p>Description:</p>
-                        <input type="text" placeholder="Enter description"/>
+                        <input type="text" onChange={this.handleDescriptionChange} value={this.state.Description} placeholder="Enter description"/>
                     </div>
                     <div className="button">
                         <button type="submit">Create</button>
