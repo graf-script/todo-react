@@ -1,6 +1,5 @@
 
 import TodoList from "./components/ToDoList";
-
 const Application = () => {
 
     return (
@@ -9,5 +8,4 @@ const Application = () => {
         </>
     );
 };
-
 export default Application;
